@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light mb-3">
+<nav class="navbar navbar-expand-xl bg-light mb-3">
   <div class="container-fluid">
 
     <a class="navbar-brand me-5 py-0" href="/">
@@ -6,27 +6,27 @@
       <h2 class="display-6 mb-0">
         <img src="assets/img/RCX-Extension-Hub-logo.png" alt="RCX Logo"  height="50" class="d-inline-block align-text-bottom mb-1"> RCX extension hub</h2>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button (click)="isMenuCollapsed = !isMenuCollapsed" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
-        <li class="nav-item">
+        <li class="nav-item" (click)="isMenuCollapsed = true">
           <a class="nav-link" routerLink="/rcx-package">The <img src="assets/img/RCX-logo.png" alt="RCX"  height="24" class="d-inline-block align-text-bottom mb-1"> package</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" (click)="isMenuCollapsed = true">
           <a class="nav-link" routerLink="/extensions">Extensions</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" (click)="isMenuCollapsed = true">
           <a class="nav-link" routerLink="/template">Template</a>
         </li>
       </ul>
       <ul class="navbar-nav d-flex justify-content-end">
-        <li class="nav-item">
+        <li class="nav-item" (click)="isMenuCollapsed = true">
           <a class="nav-link" href="https://bioconductor.org/packages/RCX/" target="_blank">RCX@Bioconductor</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" (click)="isMenuCollapsed = true">
           <a class="nav-link " href="https://github.com/frankkramer-lab/RCX" target="_blank">RCX@github</a>
         </li>
       </ul>

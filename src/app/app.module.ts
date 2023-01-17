@@ -8,6 +8,7 @@ import { RcxPackageComponent } from './rcx-package/rcx-package.component';
 import { TemplateComponent } from './template/template.component';
 import { RcxExtensionHubComponent } from './rcx-extension-hub/rcx-extension-hub.component';
 import { ImpressumComponent } from './impressum/impressum.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ImpressumComponent } from './impressum/impressum.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
