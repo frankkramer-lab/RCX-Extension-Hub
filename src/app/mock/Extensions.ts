@@ -1,8 +1,9 @@
-import {RCXExtension} from "./rcxextension";
+import { Extension} from "../interfaces/extension";
 
-export const EXTENSIONS: RCXExtension[] = [
+export const EXTENSIONS: Extension[] = [
   {
     id: "MetaRelSubNetVis",
+    official: true,
     name: "MetaRelSubNetVis",
     git:"https://github.com/frankkramer-lab/RCX-MetaRelSubNetVis",
     usage:"https://frankkramer-lab.github.io/MetaRelSubNetVis",
@@ -11,10 +12,9 @@ export const EXTENSIONS: RCXExtension[] = [
   },
   {
     id: "NetworkDifferences",
-    name: "NetworkDifferences",
+    name: "Network differences",
     git:"https://github.com/frankkramer-lab/RCX-NetworkDifferences",
     package_name: "RCXNetworkDifferences",
     description:"Create, document, and visualize differences between two networks"
   },
-
 ]

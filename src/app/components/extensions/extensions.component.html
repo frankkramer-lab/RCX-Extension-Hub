@@ -1,0 +1,17 @@
+<div class="container-flex px-5">
+<h1>Available extensions for the RCX data model</h1>
+
+  <ngb-accordion #acc="ngbAccordion" >
+    <ngb-panel *ngFor="let extension of extensions">
+      <ng-template ngbPanelTitle>
+        <span class="fs-5">
+          {{extension.name}} <span *ngIf="extension.official">&#9733; <small class="fst-italic fs-6">(offcial)</small></span>
+        </span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        {{extension.description}}
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+
+</div>
