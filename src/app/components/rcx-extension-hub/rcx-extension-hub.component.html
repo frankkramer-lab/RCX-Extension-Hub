@@ -1,1 +1,63 @@
-<p>rcx-extension-hub works!</p>
+<div class="container-flex px-5">
+  <img src="assets/img/RCX-Extension-Hub-logo.png" class="img-fluid float-end" alt="The RCX Extension Hub">
+  <h1>The RCX Extension Hub</h1>
+
+  <p>Biological networks are simple but powerful tools to capture complex association between biological entities, and therefore form the foundation of many bioinformatics analyses.
+    They can capture the relationships between genes, proteins, metabolites, and the mechanism associated with their function and involvement in biological processes.
+    Within a typical analysis, the studied networks are enriched further with diverse information not only concerning the networks themselves, but also their visualization, provenance history, subnetwork configuration, and usage in additional applications.
+  </p>
+  <p>The NDEx platform is an online commons for biological networks that not only serves as resource, it also allows to manage and collaborate on own network data.
+  NDEx originated from the popular pathway interaction database (PID) and also contains the original data and an updated version.
+  For the exchange of networks over the internet these are provided using the Cytoscape exchange (CX) format:
+  It separates a network into its different aspects to modularize its contents, and therefore aims to reduce message payload on transmission.
+  Besides the predefined core aspects, the CX format allows the introduction of additional custom aspects to cover individual needs.
+  </p>
+  <p>One of the most popular environments for data analysis is the statistical programming languages R, which includes several program bundles for graph and network analysis.
+    The Bioconductor project extends these set of tools by providing access to specialized methods for the analysis of biological data through reviewed and curated software packages.
+    One of it is the ndexr package for the interaction with the NDEx platform:
+    Besides querying the repository and retrieval of networks ndexr can also upload networks, manage their properties and visibility, and share them with specific people and groups.
+    For the adaption of the retrieved networks to standard R data types the RCX package is used.
+    This package not only implements the core aspects of the CX data structure but also implements methods for conversion, validation, summarization, and visualization, and, furthermore, provides a mechanism for extending the data model to additional custom aspects.
+    Sharing the implementation of those extensions is as crucial for a seamless integration into an analysis workflow as thereby supported features.
+  </p>
+  <p>The RCX extension hub is a resource for the management of R implementations of custom CX networks aspects.
+    The hub provides the available extensions along with their intended applications as well as instructions supporting the implementation of own extensions.
+  </p>
+
+  <h1>The RCX extension hub</h1>
+
+  <p>The specialization of the CX as transmission format comes with drawbacks in the usage of the biological network data, especially in programming languages that do not mainly underly the object-oriented paradigm or support data streaming.
+    Consequently, a more sophisticated data conversion is required to adapt networks in the CX format to standard R data types.
+    The core aspects are covered by the RCX package but customized as well as deprecated aspects, require their own implementations.
+  </p>
+
+  <figure class="figure">
+    <img src="assets/img/RCX-Extension-Hub.png" class="figure-img img-fluid float-end" alt="The RCX Extension Hub">
+    <figcaption class="figure-caption">The RCX Extension Hub manages available extensions to the RCX data formats.</figcaption>
+  </figure>
+
+
+  <p>The RCX extension hub organizes the information around the development of custom aspects and their adaptation to standard R data types in concordance with functions provided by the RCX package.
+    The hub therefore is structured in three sections: an overview over existing extensions, guiding the adaptation process through tutorials, and supporting the implementation with a package creation template.
+    The development of extensions in R requires not only the implementation of specific generic function but also the setup as an R library to be easily shared and loaded.
+    To simplify this process the RCX extension template provided by the hub can be used to create all required files and functions to build a functioning R library.
+    Newly created RCX extension packages can be registered raising GitHub issues through the hub.
+  </p>
+
+  <p>Some other popular programming languages like python do not require the implementations of custom aspects due to their object-oriented nature.
+    R on the contrary approaches data in a vector and table-oriented manner and therefore requires an adaptation of the JSON encoded data objects contained in the CX networks.
+    Nevertheless, this additional work required for the data transformation is paid off by the afforded accessibility to standard bioinformatics analysis tools and workflows provided by the R language.
+    With this approach implementation of the different versions of the same aspect can also be easily managed.
+  </p>
+  <p>Custom aspects incorporated within the biological networks enable great flexibility and contribute to their expressiveness.
+    However, sharing not only these aspects but also their integration into programming languages enables their true benefit.
+    Yet, this comes with a certain tradeoff:
+    Submitting every custom aspect implementation as new package to Bioconductor nor their inclusion into the RCX implementation are feasible approaches for maintaining the different extensions or even restrict their flexibility.
+    Providing a hub for the exchange of these extension presents a balance between implementation effort and adaptability while also supporting further developments.
+  </p>
+  <p>The NDEx platform builds upon the collaboration on biological networks data.
+    In the same way the RCX extension hub builds upon the collaboration on extending the underlying data model and its integration into standard bioinformatics workflows.
+    Providing available extensions and their implementations, along with guides, examples, and templates for developing own extension packages makes the hub a valuable resource and contact point for R-based network biology.
+  </p>
+
+</div>

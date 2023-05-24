@@ -1,5 +1,5 @@
 <div class="container-flex px-5">
-<h1>Available extensions for the RCX data model</h1>
+<h1 class="mb-4">Available extensions for the RCX data model</h1>
 
   <ngb-accordion #acc="ngbAccordion" >
     <ngb-panel *ngFor="let extension of extensions">
@@ -8,8 +8,137 @@
           {{extension.name}} <span *ngIf="extension.official">&#9733; <small class="fst-italic fs-6">(offcial)</small></span>
         </span>
       </ng-template>
-      <ng-template ngbPanelContent>
-        {{extension.description}}
+      <ng-template ngbPanelContent class="container">
+        <div class="row mb-3">
+          <div class="col">
+            {{extension.description}}
+          </div>
+        </div>
+
+        <div class="row mb-3 ">
+          <div class="col-lg-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="aspect_name">Name:</span>
+              <input type="text" class="form-control"
+                     aria-describedby="aspect_name"
+                     readonly
+                     value="{{extension.aspect_name}}"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="aspect_accession">Accession:</span>
+              <input type="text" class="form-control"
+                     aria-describedby="aspect_accession"
+                     readonly
+                     value="{{extension.aspect_accession}}"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="aspect_class">Class:</span>
+              <input type="text" class="form-control"
+                     aria-describedby="aspect_class"
+                     readonly
+                     value="{{extension.aspect_class}}"
+              />
+            </div>
+          </div>
+        </div>
+
+        <hr class="row mt-3" />
+
+
+        <div class="row  align-items-end">
+          <div class="col-3">
+            <h4>Availability:</h4>
+          </div>
+          <div class="col-9">
+            <a href="{{extension.git}}" target="_blank"
+               class="btn btn-outline-dark float-md-end"
+               tabindex="-1" role="button" aria-disabled="true">
+              <img src="https://github.githubassets.com/favicons/favicon.svg" width="30" />
+              {{extension.git}}
+            </a>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="h6">Install the package from Git:</div>
+          <nav ngbNav #nav="ngbNav" class="nav-tabs">
+            <ng-container ngbNavItem>
+              <a ngbNavLink>remotes</a>
+              <ng-template ngbNavContent>
+                <pre> <!-- https://github.com/ngx-prism/core for code highlghting-->
+<code>
+if (!"remotes" %in% installed.packages()) install.packages("remotes")
+
+remotes::install_github("{{extension.install_git}}")
+library({{extension.package_name}})
+
+uuid <- "{{extension.showcase_uuid}}"
+ndex_con <- ndex_connect()
+rcx <- ndex_get_network(ndex_con, uuid)
+
+rcx${{extension.aspect_name}}
+</code>
+                </pre>
+
+              </ng-template>
+            </ng-container>
+            <ng-container ngbNavItem>
+              <a ngbNavLink>devtools</a>
+              <ng-template ngbNavContent>
+                <pre> <!-- https://github.com/ngx-prism/core for code highlghting-->
+<code>
+if (!"devtools" %in% installed.packages()) install.packages("devtools")
+
+devtools::install_github("{{extension.install_git}}")
+library({{extension.package_name}})
+
+uuid <- "{{extension.showcase_uuid}}"
+ndex_con <- ndex_connect()
+rcx <- ndex_get_network(ndex_con, uuid)
+
+rcx${{extension.aspect_name}}
+</code>
+                </pre>
+              </ng-template>
+            </ng-container>
+            <ng-container ngbNavItem>
+              <a ngbNavLink>manually</a>
+              <ng-template ngbNavContent>
+                <p>Download the source code from <a href="{{extension.git}}" >{{extension.git}}</a> or clone it:</p>
+                <pre> <!-- https://github.com/ngx-prism/core for code highlghting-->
+<code>
+git clone git@github.com:{{extension.install_git}}.git
+</code>
+                </pre>
+                <p>
+                  Then install the package from source:
+                </p>
+                <pre> <!-- https://github.com/ngx-prism/core for code highlghting-->
+<code>
+install.packages(".", repos = NULL, type="source")
+library({{extension.package_name}})
+
+uuid <- "{{extension.showcase_uuid}}"
+ndex_con <- ndex_connect()
+rcx <- ndex_get_network(ndex_con, uuid)
+
+rcx${{extension.aspect_name}}
+</code>
+                </pre>
+              </ng-template>
+            </ng-container>
+          </nav>
+
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+
+
+
       </ng-template>
     </ngb-panel>
   </ngb-accordion>

@@ -1,1 +1,82 @@
-<p>template works!</p>
+<div class="container-flex px-5">
+
+<h1>Create an RCX extension with a template</h1>
+
+  <p>A template for creating RCX extensions is available at <a href="https://github.com/frankkramer-lab/RCX-ExtensionTemplate" target="_blank" > https://github.com/frankkramer-lab/RCX-ExtensionTemplate</a></p>
+
+  <p>Simply clone the repository locally to setup the necessary functions for an extension to work:</p>
+
+  <pre>
+    <code>git clone https://github.com/frankkramer-lab/RCX-ExtensionTemplate</code>
+  </pre>
+
+  <p>This repository contains some functions to easily create own extension of the RCX data model.</p>
+
+<p>To be able to use the functions it is necessary to load them first:</p>
+  <pre>
+<code>
+source("inst/setup.R")
+</code></pre>
+
+
+<p>First of all, the new implementation needs a suitable name, thereby some conventions have to be met.
+  The following function helps to generate the necessary properties for naming a new extension package:
+</p>
+<pre>
+<code>
+extensionNames <- generateName("my extension example")
+extensionNames
+## $extensionName
+## [1] "MyExtensionExample"
+##
+## $packageName
+## [1] "RCXMyExtensionExample"
+##
+## $gitName
+## [1] "RCX-MyExtensionExample"
+##
+## $accession
+## [1] "myExtensionExample"
+##
+## $className
+## [1] "MyExtensionExampleAspect"
+</code>
+</pre>
+
+  <p>The above properties define:</p>
+<ul>
+  <li>extensionName: The general name of the aspect when used in descriptions</li>
+<li>packageName: The name of the R package used in e.g. <code></code></li>
+<li>gitName: The name of the git repository. In contrast to packageName it includes a hyphen to better highlight extensions (but hyphens are not allowed in R packages names) </li>
+<li>accession: The name used in an CX and RCX object to access the aspect (i.e. the property name in CX <code></code> and in RCX <code></code></li>
+<li>className: The class name of the aspect (in RCX objects usually the name of the extension followed by Aspect)</li>
+</ul>
+
+<p>With these parameters a default template implementation of the extension can be created. Therefore the parameters simply have to be used in the setup function:</p>
+  <pre>
+<code>
+setup(
+    extensionName = extensionNames$extensionName, packageName = extensionNames$packageName,
+    gitName = paste0(
+        "https://github.com/frankkramer-lab/", extensionNames$gitName
+    ),
+    accession = extensionNames$accession, className = extensionNames$className,
+    inputDir = paste("inst", "raw", sep = .Platform$file.sep),
+    outputDir = ".", verbose = TRUE
+)
+</code>
+</pre>
+
+<p>This function prepares the R package for creating an own implementation of the aspect.
+The most important function and their documentation will be created within the current template project.
+Those functions, and all necessary additional implementation details now simply can be added.</p>
+
+<p>However, the files necessary for generation of the template still remain within project.
+They can be removed with the following function to receive a clean extension project:
+</p>
+<pre><code>
+clean()
+</code></pre>
+
+  <p>Now the project is set up to be used for implementing own extensions to the RCX package!</p>
+</div>

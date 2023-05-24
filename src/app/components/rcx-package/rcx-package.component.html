@@ -1,1 +1,32 @@
-<p>rcx-package works!</p>
+<div class="container-flex px-5">
+<h1>RCX - an adaption of the CX format</h1>
+
+<p>CX is a JSON-based data structure designed as a flexible model for transmitting networks with a focus on flexibility, modularity, and extensibility.
+  Although those features are widely used in common REST protocols they don’t quite fit the R way of thinking about data.</p>
+
+<p>This package provides an adaption of the CX format to standard R data formats and types to create and modify, load, export, and visualize those networks.
+  The RCX package is available on Bioconductor at <a href="https://bioconductor.org/packages/RCX/" target="_blank">https://bioconductor.org/packages/RCX/</a>.
+  The <a href="<http://www.bioconductor.org/packages/release/bioc/vignettes/RCX/inst/doc/RCX_an_R_package_implementing_the_Cytoscape_Exchange_format.html" target="_blank">documentation</a> aims to help the user to install and benefit from the wide range of functionality of this implementation.
+  For an overview of the differences of the RCX implementation to the CX specification see <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/RCX/inst/doc/Appendix_The_RCX_and_CX_Data_Model.html" target="_blank">Appendix: The RCX and CX Data Model</a>
+</p>
+
+  <h2>The Cytoscape Exchange (CX)</h2>
+  <p>A possible solution as flexible transmission format is provided by the Cytoscape Exchange (CX) format. CX is a JSON-based, aspect-oriented data structure, which means that the network is divided into several independent modules (“aspects”). This way, every aspect of a network, meaning nodes, edges, its attributes, and visual representations can be handled individually without interference. Each aspect has its own schema for its contained information, and links between aspects are realized by referencing the unique internal IDs of other aspects. The CX data model was developed by the NDEx project, in collaboration with the Cytoscape Consortium (http://www.cytoscapeconsortium.org/) as a transmission format between their tools, and since adopted by many others. More details about the CX data model can be found on its documentation website: </p>
+  <a href="https://home.ndexbio.org/data-model/" target="_blank">https://home.ndexbio.org/data-model/</a>
+
+  <h2>The NDEx platform</h2>
+  <p>The Network Data Exchange, or NDEx, is an online commons for biological networks (Pratt et al., 2015, Cell Systems 1, 302-305, October 28, 2015 ©2015 Elsevier Inc. ScienceDirect). It is an open-source software framework to manipulate, store, and exchange networks of various types and formats. NDEx can be used to upload, share and publicly distribute networks while providing an output in formats, that can be used by plenty of other applications.</p>
+
+  <p>The public NDEx server is a network data commons that provides pathway collections like the Pathway Interaction Database of the NCI (http://www.ndexbio.org/#/user/301a91c6-a37b-11e4-bda0-000c29202374) and the Cancer Cell Maps Initiative (http://www.ndexbio.org/#/user/b47268a6-8112-11e6-b0a6-06603eb7f303). Public networks can be searched and retrieved from the platform for further use. Own networks can be uploaded and shared with certain collaborators or groups privately or provided publicly to the community. Furthermore, private installation of the NDEx platform can be used to store and collaborate on networks locally.</p>
+
+  <p>The ndexr package available on Bioconductor (https://doi.org/doi:10.18129/B9.bioc.ndexr) allows connecting with the NDEx platform from within R. This package provides an interface to query the public NDEx server, as well as private installations, to upload, download or modify biological networks.</p>
+
+  <h2>Cytoscape</h2>
+  <p>The most prominent software environment for biological network analysis and visualization is Cytoscape (https://cytoscape.org/). It provides support for large networks and comes with a rich set of features for custom visualization, and advanced layout and analysis algorithms. One of these visualization features is the “attribute-to-visual mapping”, where the network’s data translates to its visual representation. Based on this visualization strategy, Cytoscape contributed aspects to the CX-format to capture the visual representation as part of the network. Because of these aspects, the visualization not only can be documented along with the network, but also reproduced on other platforms, and even shared between networks with the same attributes used for creating the visualization.</p>
+
+  <h2>ndexr - an interface with the NDEx platform</h2>
+
+  <p>This package provides an interface to query the public NDEx server, as well as private installations, in order to upload, download or modify biological networks.</p>
+    The package is available on Bioconductor at <a href="https://bioconductor.org/packages/ndexr/" target="_blank">https://bioconductor.org/packages/ndexr/</a>
+    <p>The documentation helps the user to install and benefit from the wide range of functionality of this implementation. The package makes use of the R implementation of the Cytoscape Cyberinfrastructure (CX) format by the RCX package. The RCX package provides functions to create, edit, and extend the networks in CX format and also for the lossless conversion of the networks from and to iGraph and Bioconductor graph objects.</p>
+</div>

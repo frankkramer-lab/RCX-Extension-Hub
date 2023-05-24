@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RcxPackageComponent } from './rcx-package.component';
+import { SubmitComponent } from './submit.component';
 
-describe('RcxPackageComponent', () => {
-  let component: RcxPackageComponent;
-  let fixture: ComponentFixture<RcxPackageComponent>;
+describe('SubmitComponent', () => {
+  let component: SubmitComponent;
+  let fixture: ComponentFixture<SubmitComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RcxPackageComponent ]
+      declarations: [ SubmitComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RcxPackageComponent);
+    fixture = TestBed.createComponent(SubmitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

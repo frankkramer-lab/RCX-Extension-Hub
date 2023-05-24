@@ -9,6 +9,7 @@ import { TemplateComponent } from './components/template/template.component';
 import { RcxExtensionHubComponent } from './components/rcx-extension-hub/rcx-extension-hub.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SubmitComponent } from './components/submit/submit/submit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RcxPackageComponent,
     TemplateComponent,
     RcxExtensionHubComponent,
-    ImpressumComponent
+    ImpressumComponent,
+    SubmitComponent
   ],
   imports: [
     BrowserModule,
